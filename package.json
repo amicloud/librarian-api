@@ -1,0 +1,19 @@
+{
+  "name": "librarian-server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "js-base64": "^2.5.0",
+    "json2csv": "^4.3.2",
+    "morgan": "~1.9.0",
+    "playmusic": "^2.3.0",
+    "pug": "2.0.0-beta11"
+  }
+}
