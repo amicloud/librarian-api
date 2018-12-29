@@ -12,6 +12,7 @@ router.get('/library', function (req, res, next) {
     let password = decodeURIComponent(req.query.password);
     pm.login({email: username, password: password}, function (err, info) {
         if (err) {
+            console.log(err);
             console.log(`Invalid username or password. (Or maybe "Allow Less Secure Apps" is off?) Please try again.`);
         } else {
             console.log("Logged in successfully!\n" +
