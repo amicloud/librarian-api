@@ -34,7 +34,7 @@ router.get('/library', function (req, res, next) {
                     }
                     console.log("Library retrieved! Found " + library.data.items.length + " songs.");
                     if (library) {
-                        res.json(200, {"library": Base64.encode(library)});
+                        res.json(200, {"library": Base64.encode(JSON.stringify(library))});
                     } else {
                         res.json(404, {"error": "No songs found."});
                         console.log("No songs found.");
