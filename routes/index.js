@@ -4,13 +4,14 @@ const PlayMusic = require('playmusic');
 const json2csv = require('json2csv').parse;
 const Base64 = require('js-base64').Base64;
 
-/* GET library */
-router.get('/library', function (req, res, next) {
+/* POST library */
+router.post('/library', function (req, res, next) {
     let pm = new PlayMusic();
-    let username = decodeURIComponent(req.query.username);
-    let password = decodeURIComponent(req.query.password);
+    let body = req.body;
+    let email = body.email;
+    let password = body.password;
     console.log("Attempting to log in");
-    pm.login({email: username, password: password}, function (err, info) {
+    pm.login({email: email, password: password}, function (err, info) {
         if (err) {
             console.log(err);
             res.json(403, {"error": "Authentication failed."});
