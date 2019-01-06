@@ -13,7 +13,6 @@ router.post('/library', function (req, res, next) {
     console.log("Attempting to log in");
     pm.login({email: email, password: password}, function (err, info) {
         if (err) {
-            console.log(err);
             res.json(403, {"error": "Authentication failed."});
             console.log(`Invalid username or password. (Or maybe "Allow Less Secure Apps" is off)`);
         } else {
@@ -21,7 +20,6 @@ router.post('/library', function (req, res, next) {
                 "Initializing client...");
             pm.init({androidId: info.androidId, masterToken: info.masterToken}, function (err) {
                 if (err) {
-                    console.error(err);
                     res.json(500, {"error": "Failed to create client."});
                     return;
                 }
